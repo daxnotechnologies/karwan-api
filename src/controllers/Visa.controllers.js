@@ -23,7 +23,7 @@ async function getVisa(req, res) {
   try {
     const visaData = await Visa.find();
     res.status(200).json(visaData);
-    console.log(visaData);
+    // console.log(visaData);
   } catch (error) {
     res.status(404).send(error);
   }
