@@ -7,7 +7,7 @@ const bookRequestRouter = require("./routes/bookRequests.routes");
 const supplicationRouter = require("./routes/supplications.routes");
 const bookRouter = require("./routes/books.routes");
 const groupRouter = require("./routes/groups.routes");
-const visaRouter = require("./routes/visa.routes");
+/* const visaRouter = require("./routes/visa.routes"); */
 const ProductRouter = require("./routes/products.routes");
 // const ProductCartRouter = require("./routes/productsCart.routes");
 require("../db/connect");
@@ -23,7 +23,7 @@ app.use(bookRouter);
 app.use(supplicationRouter);
 app.use(bookRequestRouter);
 app.use(groupRouter);
-app.use(visaRouter);
+/* app.use(visaRouter); */
 app.use(ProductRouter);
 // app.use(ProductCartRouter);
 
