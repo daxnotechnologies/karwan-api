@@ -9,7 +9,6 @@ const {
 } = require("../controllers/visa.controllers");
 
 const router = express.Router();
-
 router.get("/get-visa", getVisa);
 router.get("/get-visa/:id", getSingleVisa);
 router.post("/add-visa", addVisa);
