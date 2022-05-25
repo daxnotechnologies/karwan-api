@@ -6,7 +6,7 @@ const {
   addVisa,
   updateVisa,
   deleteVisa,
-} = require("../controllers/visa.controllers");
+} = require("../controllers/visas.controllers");
 
 const router = express.Router();
 router.get("/get-visa", getVisa);
