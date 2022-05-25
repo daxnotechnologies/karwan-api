@@ -9,7 +9,7 @@ const bookRouter = require("./routes/books.routes");
 const groupRouter = require("./routes/groups.routes");
 const visasRouter = require("./routes/visas.routes");
 const ProductRouter = require("./routes/products.routes");
-// const ProductCartRouter = require("./routes/productsCart.routes");
+const ProductCartRouter = require("./routes/productCarts.routes");
 require("../db/connect");
 const app = express();
 const port = process.env.PORT;
@@ -25,7 +25,7 @@ app.use(bookRequestRouter);
 app.use(groupRouter);
 app.use(visasRouter);
 app.use(ProductRouter);
-// app.use(ProductCartRouter);
+app.use(ProductCartRouter);
 
 app.get("/", (req, res) => res.send("Hello Server!"));
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
