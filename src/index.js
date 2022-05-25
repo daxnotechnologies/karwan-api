@@ -11,7 +11,6 @@ const visaRouter = require("./routes/visa.routes");
 const ProductRouter = require("./routes/products.routes");
 // const ProductCartRouter = require("./routes/productsCart.routes");
 require("../db/connect");
-
 const app = express();
 const port = process.env.PORT;
 
