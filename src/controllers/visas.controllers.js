@@ -1,7 +1,7 @@
 const Visa = require("../models/visa.model");
 
 //////////////////////////////////////////////////////////////////////////////
-async function addVisa(req, res) {
+/* async function addVisa(req, res) {
   try {
     const preVisa = await Visa.findOne({ email: req.body.email });
     console.log(preVisa);
@@ -13,6 +13,16 @@ async function addVisa(req, res) {
       res.status(201).json(addVisa);
       console.log(addVisa);
     }
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+} */
+async function addVisa(req, res) {
+  try {
+    const addVisa = new Visa(req.body);
+    await addVisa.save();
+    res.status(201).json(addVisa);
+    console.log(addVisa);
   } catch (error) {
     res.status(404).send(error.message);
   }
