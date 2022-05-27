@@ -1,3 +1,4 @@
+const { path } = require("express/lib/application");
 const Product = require("../models/product.model");
 
 //////////////////////////////////////////////////////////////////////////////
@@ -28,7 +29,12 @@ async function addProduct(req, res) {
 //////////////////////////////////////////////////////////////////////////////
 async function getProducts(req, res) {
   try {
-    const productsData = await Product.find();
+    const productsData = await Product.find()
+      .populate({
+        path: "reviews",
+        populate: [{ path: "user_id" }],
+      })
+      .exec();
     res.status(200).json(productsData);
     console.log(productsData);
   } catch (error) {
