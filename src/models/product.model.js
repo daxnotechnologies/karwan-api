@@ -11,7 +11,7 @@ const ProductSchema = new mongoose.Schema({
     {
       user_id: { type: Id, ref: "User", required: true },
       comment: { type: String, required: true },
-      userRating: { type: String, required: true },
+      userRating: { type: Number, required: true },
     },
   ],
   productImage: { type: String, required: true },
