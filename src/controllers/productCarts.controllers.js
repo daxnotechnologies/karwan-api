@@ -25,7 +25,10 @@ async function addProductCart(req, res) {
 //////////////////////////////////////////////////////////////////////////////
 async function getProductCarts(req, res) {
   try {
-    const productCartsData = await ProductCart.find();
+    const productCartsData = await ProductCart.find()
+      .populate("user_id")
+      .populate("products")
+      .exec();
     res.status(200).json(productCartsData);
     console.log(productCartsData);
   } catch (error) {
