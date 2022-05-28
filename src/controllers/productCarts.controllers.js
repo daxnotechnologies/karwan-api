@@ -27,7 +27,7 @@ async function getProductCarts(req, res) {
   try {
     const productCartsData = await ProductCart.find()
       .populate("user_id")
-      .populate("products")
+      .populate({ path: "products", populate: [{ path: "product_id" }] })
       .exec();
     res.status(200).json(productCartsData);
     console.log(productCartsData);
