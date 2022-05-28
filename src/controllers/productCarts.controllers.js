@@ -40,7 +40,9 @@ async function getProductCarts(req, res) {
 async function getSingleProductCart(req, res) {
   const productCartId = req.params.id;
   try {
-    const productCartData = await ProductCart.findById(productCartId);
+    const productCartData = await ProductCart.findById(productCartId)
+      .populate("user_id")
+      .populate({ path: "products", populate: [{ path: "product_id" }] });
     res.status(200).json(productCartData);
     console.log(productCartData);
   } catch (error) {
