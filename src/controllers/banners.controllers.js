@@ -2,14 +2,15 @@ const Banner = require("../models/banner.model");
 
 //////////////////////////////////////////////////////////////////////////////
 async function addBanner(req, res) {
-  const { bannerImage } = req.body;
+  const { title, bannerImage } = req.body;
   try {
-    const preBanner = await Banner.findOne({ bannerImage: bannerImage });
+    const preBanner = await Banner.findOne({ title: title });
     console.log(preBanner);
     if (preBanner) {
       res.status(404).send("This banner already exists");
     } else {
       const addBanner = new Banner({
+        title,
         bannerImage,
       });
       await addBanner.save();
